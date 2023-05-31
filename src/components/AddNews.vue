@@ -1,0 +1,106 @@
+<template>
+  <div class="flex justify-center pt-[25px]"></div>
+
+  <div class="center">
+    <form @submit.prevent="addProduct">
+      <div class="w-[400px]">
+        <label for="name">Атауы:</label>
+        <input
+          type="text"
+          id="name"
+          v-model="newProduct.name"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        />
+      </div>
+
+      <div>
+        <label for="image">URL суреттер:</label>
+        <input
+          type="text"
+          id="image"
+          v-model="newProduct.image"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        />
+      </div>
+      <div>
+        <label for="validUntil">Күні:</label>
+        <input
+          type="date"
+          id="validUntil"
+          v-model="newProduct.validUntil"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        />
+      </div>
+
+      <div>
+        <label for="info">Ақпарат:</label>
+        <textarea
+          id="info"
+          v-model="newProduct.info"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        ></textarea>
+      </div>
+
+      <button
+        type=" button"
+        class="mt-[25px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      >
+        Қосу
+      </button>
+    </form>
+  </div>
+</template>
+
+<script>
+import {
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  onSnapshot,
+  doc,
+} from "firebase/firestore";
+import { db } from "../firebase/firebas";
+export default {
+  data() {
+    return {
+      cat: "Hygiene",
+      newProduct: {
+        name: "",
+
+        image: "",
+        validUntil: "",
+
+        info: "",
+      },
+    };
+  },
+  methods: {
+    tab(item) {
+      this.cat = item;
+    },
+    async addProduct() {
+      const docRef = await addDoc(collection(db, "news"), {
+        nameNews: this.newProduct.name, // Внимание на исправленную строку
+
+        image: this.newProduct.image,
+        date: this.newProduct.validUntil,
+        text: this.newProduct.info,
+      });
+      // Добавление нового товара в массив данных
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
