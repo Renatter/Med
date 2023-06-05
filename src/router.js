@@ -4,7 +4,7 @@ import {
 } from 'vue-router';
 import News from "./views/News.vue"
 import Home from "./views/Home.vue"
-import Reg from "./components/Reg.vue"
+
 import Catlog from "./views/Catlog.vue"
 import Basket from "./views/Basket.vue"
 import AdminCard from "./views/AdminCard.vue"
@@ -49,11 +49,7 @@ const router = createRouter({
             name: 'Home',
             component: Home,
 
-        },
-        {
-            path: '/Reg',
-            name: 'Reg',
-            component: Reg,
+
 
         },
         {

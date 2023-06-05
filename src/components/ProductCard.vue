@@ -1,7 +1,10 @@
 <template>
   <div class="container">
+    <!-- Отображение элемента -->
+    {{ item }}
     <div class="pt-[45px]">
       <h1 class="text-[40px]">
+        <!-- Отображение названия, информации и количества -->
         {{ item.name }} <br />{{ item.info }} {{ item.quantity }} шт
       </h1>
       <div class="flex">
@@ -14,6 +17,7 @@
           <div class="price border-[1px] rounded-[15px] w-[700px] p-[25px]">
             <h1>Бағасы</h1>
             <p class="text-[30px] font-bold text-[#4A94F5]">
+              <!-- Отображение цены -->
               {{ item.price }} тг
             </p>
             <div class="flex">
@@ -58,13 +62,16 @@
             </div>
             <div>
               <p class="mt-[15px] text-[20px] ml-[10px]">
+                <!-- Отображение даты окончания действия -->
                 {{ item.validUntil }}
               </p>
               <p class="mt-[15px] text-[20px] ml-[10px]">{{ item.info }}</p>
               <p class="mt-[15px] text-[20px] ml-[10px]">
+                <!-- Отображение количества -->
                 {{ item.quantity }} шт
               </p>
               <p class="mt-[15px] text-[20px] ml-[10px]">
+                <!-- Отображение производителя -->
                 {{ item.manufacturer }}
               </p>
             </div>
@@ -116,7 +123,7 @@ export default {
         validUntil: this.item.validUntil,
       };
 
-      // Check if the new item already exists in the cart
+      // Проверка, существует ли уже новый товар в корзине
       const itemExists = (this.cart || []).some(
         (item) => item.name === newItem.name
       );
@@ -126,13 +133,13 @@ export default {
         return;
       }
 
-      // Add the new item to the existing cart array
+      // Добавление нового товара в существующий массив корзины
       const updatedCart = [...(this.cart || []), newItem];
 
-      // Update the user's cart with the updated cart array
+      // Обновление корзины пользователя с обновленным массивом корзины
       await setDoc(docRef, { cart: updatedCart }, { merge: true });
 
-      console.log("Item added to cart:", newItem);
+      console.log("Товар добавлен в корзину:", newItem);
     },
   },
   async created() {
@@ -141,7 +148,7 @@ export default {
 
     querySnapshot.forEach((doc) => {
       this.item = doc.data();
-      // doc.data() is never undefined for query doc snapshots
+      // doc.data() никогда не является неопределенным для снимков запроса документа
       console.log(doc.id, " => ", doc.data());
     });
     auth.onAuthStateChanged(async (user) => {
@@ -152,12 +159,10 @@ export default {
         if (userDoc.exists()) {
           this.cart = userDoc.data().cart;
         } else {
-          console.log("No such document!");
+          console.log("Нет такого документа!");
         }
       }
     });
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

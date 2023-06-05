@@ -1,5 +1,6 @@
 <template>
   <div class="flex justify-center pt-[25px]">
+    <!-- Навигационное меню -->
     <ul
       class="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400"
     >
@@ -49,6 +50,7 @@
 
   <div class="center">
     <form @submit.prevent="addProduct">
+      <!-- Поле для ввода названия -->
       <div class="w-[400px]">
         <label for="name">Атауы:</label>
         <input
@@ -60,6 +62,7 @@
         />
       </div>
 
+      <!-- Поле для ввода количества -->
       <div>
         <label for="quantity">Саны:</label>
         <input
@@ -71,6 +74,7 @@
         />
       </div>
 
+      <!-- Поле для ввода URL изображения -->
       <div>
         <label for="image">URL суреттер:</label>
         <input
@@ -81,6 +85,8 @@
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
       </div>
+
+      <!-- Поле для ввода даты окончания -->
       <div>
         <label for="validUntil">Аяқталу күні:</label>
         <input
@@ -92,6 +98,7 @@
         />
       </div>
 
+      <!-- Поле для ввода производителя -->
       <div>
         <label for="manufacturer">Өндіруші:</label>
         <input
@@ -103,6 +110,7 @@
         />
       </div>
 
+      <!-- Поле для ввода информации -->
       <div>
         <label for="info">Ақпарат:</label>
         <textarea
@@ -113,6 +121,7 @@
         ></textarea>
       </div>
 
+      <!-- Поле для ввода цены -->
       <div>
         <label for="price">Бағасы:</label>
         <input
@@ -124,6 +133,7 @@
         />
       </div>
 
+      <!-- Поле для ввода доступности -->
       <div>
         <label for="availability">Қол жетімділік:</label>
         <input
@@ -135,6 +145,7 @@
         />
       </div>
 
+      <!-- Кнопка отправки формы -->
       <button type="submit">Қосу</button>
     </form>
   </div>
@@ -172,7 +183,7 @@ export default {
     },
     async addProduct() {
       const docRef = await addDoc(collection(db, this.cat), {
-        name: this.newProduct.name, // Внимание на исправленную строку
+        name: this.newProduct.name,
         quantity: this.newProduct.quantity,
         image: this.newProduct.image,
         validUntil: this.newProduct.validUntil,

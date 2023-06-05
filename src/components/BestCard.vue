@@ -1,24 +1,32 @@
 <template>
   <div class="container h-[700px]">
     <swiper class="mySwiper h-[500px]" :slides-per-view="4">
+      <!-- Комментарий: Итерация по каждому товару в массиве 'prodcuts' и создание слайда -->
       <swiper-slide v-for="prodcut in prodcuts" :key="prodcut.id">
         <div
           class="mt-[20px] CARD bg-white rounded-[15px] w-[280px] h-[400px] p-[25px] relative ml-[25px]"
         >
+          <!-- Комментарий: Изображение товара -->
           <img :src="prodcut.image" class="h-[200px] object-contain" alt="" />
+          <!-- Комментарий: Элемент для отображения скидки -->
           <p
             class="absolute top-[30px] left-[-15px] disc bg-red-400 px-[5px] text-white"
           >
             {{ prodcut.discount }}%
           </p>
+          <!-- Комментарий: Название товара -->
           <p class="text-[21px] text-[#445471] pt-[30px]">{{ prodcut.name }}</p>
+          <!-- Комментарий: Дополнительная информация о товаре -->
           <p class="pt-[20px]">{{ prodcut.info }}</p>
           <div class="flex items-end">
+            <!-- Комментарий: Цена со скидкой -->
             <p class="text-[25px] text-[#709FF4] font-bold">
               {{ calculateDiscountedPrice(prodcut) }} ₸
             </p>
+            <!-- Комментарий: Исходная цена -->
             <p class="ml-[15px] text-[20px] oldPrice">{{ prodcut.price }} ₸</p>
           </div>
+          <!-- Комментарий: Кнопка "Купить" -->
           <button
             type="button"
             class="text-[20px] mt-[15px] buyButton focus:outline-none text-white bg-[#60A5FA] hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-full"
@@ -39,12 +47,13 @@ import SwiperCore, { Navigation } from "swiper";
 SwiperCore.use([Navigation]);
 
 export default {
-  props: ["prodcuts"],
+  props: ["prodcuts"], // Комментарий: Принимаем пропс 'prodcuts' - массив товаров
   components: {
     Swiper,
     SwiperSlide,
   },
   methods: {
+    // Комментарий: Функция для расчета цены со скидкой
     calculateDiscountedPrice(product) {
       const discount = product.discount || 0; // Если поле 'discount' отсутствует, присваиваем 0
       const price = product.price || 0; // Если поле 'price' отсутствует, присваиваем 0

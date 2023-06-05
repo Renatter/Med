@@ -1,5 +1,6 @@
 <template>
   <div class="ml-[150px]">
+    <!-- Поле для ввода промокода -->
     <div class="w-[450px] pt-[30px]">
       <label
         for="promo_code"
@@ -13,6 +14,7 @@
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
     </div>
+    <!-- Поле для ввода скидки -->
     <div>
       <div class="w-[450px] pt-[15px]">
         <label
@@ -28,6 +30,7 @@
         />
       </div>
     </div>
+    <!-- Кнопка для добавления промокода -->
     <button
       @click="addPromo"
       type="button"
@@ -64,7 +67,7 @@ export default {
         name: this.newProduct.name, // Внимание на исправленную строку
         discount: discountValue,
       });
-      // Добавление нового товара в массив данных
+      // Добавление нового промокода в базу данных
     },
   },
 };

@@ -1,7 +1,9 @@
 <template>
   <div class="bg-[#EFF8FF] mb-[55px]">
     <div class="container h-[700px] pt-[50px]">
+      <!-- Комментарий: Раздел с фоном в виде светло-голубой полосы и отступом вниз -->
       <h1>Лучшие товары</h1>
+      <!-- Комментарий: Использование компонента BestCard для отображения лучших товаров с передачей данных -->
       <BestCard :prodcuts="prodcuts" />
     </div>
   </div>
@@ -17,17 +19,22 @@ export default {
   },
   data() {
     return {
-      prodcuts: [],
+      prodcuts: [], // Комментарий: Массив для хранения информации о товарах
     };
   },
   async mounted() {
+    // Комментарий: Асинхронная функция, вызывается после монтирования компонента
     const querySnapshot = await getDocs(collection(db, "best"));
+    // Комментарий: Получение всех документов из коллекции "best"
     querySnapshot.forEach((doc) => {
+      // Комментарий: Обход каждого документа
       const newsItem = {
         id: doc.id,
         ...doc.data(),
       };
+      // Комментарий: Создание объекта с информацией о товаре
       this.prodcuts.push(newsItem);
+      // Комментарий: Добавление объекта товара в массив
     });
   },
 };

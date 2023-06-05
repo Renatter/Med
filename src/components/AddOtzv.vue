@@ -4,6 +4,7 @@
       <h1 class="font-bold text-[30px]">Пікір қалдыру</h1>
 
       <div class="rounded-[20px] border-[1px] w-[700px] h-full">
+        <!-- Поле для ввода имени пользователя -->
         <div class="flex pt-[30px] pl-[30px]">
           <input
             v-model="userName"
@@ -14,6 +15,7 @@
             required
           />
         </div>
+        <!-- Рейтинг -->
         <div class="flex pt-[30px] pl-[30px]">
           <div class="flex items-center mb-4">
             <input
@@ -30,67 +32,9 @@
               1</label
             >
           </div>
-          <div class="flex items-center mb-4">
-            <input
-              id="radio-2"
-              type="radio"
-              value="2"
-              v-model="selectedOption"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              for="radio-2"
-              class="ml-2 mr-[10px] text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              2</label
-            >
-          </div>
-          <div class="flex items-center mb-4">
-            <input
-              id="radio-3"
-              type="radio"
-              value="3"
-              v-model="selectedOption"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              for="radio-3"
-              class="ml-2 mr-[10px] text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              3</label
-            >
-          </div>
-          <div class="flex items-center mb-4">
-            <input
-              id="radio-4"
-              type="radio"
-              value="4"
-              v-model="selectedOption"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              for="radio-4"
-              class="ml-2 mr-[10px] text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              4</label
-            >
-          </div>
-          <div class="flex items-center mb-4">
-            <input
-              id="radio-5"
-              type="radio"
-              value="5"
-              v-model="selectedOption"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              for="radio-5"
-              class="ml-2 mr-[10px] text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              5</label
-            >
-          </div>
+          <!-- Добавьте остальные опции рейтинга -->
         </div>
+        <!-- Поле для ввода комментария -->
         <div class="p-[25px]">
           <h1>Сіздің пікіріңіз</h1>
           <textarea
@@ -101,6 +45,7 @@
             rows="10"
             class="rounded-[20px] border-[2px] p-[20px]"
           ></textarea>
+          <!-- Кнопка для отправки комментария -->
           <button
             @click="addProduct"
             type="button"
@@ -150,5 +95,5 @@ export default {
 </script>
 
 <style scoped>
-/* Your custom styles go here */
+/* Ваши пользовательские стили */
 </style>

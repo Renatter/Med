@@ -1,35 +1,45 @@
 <template>
   <div class="container h-[100vh]">
+    <!-- Компонент Swiper для слайдера -->
     <swiper :navigation="true" :modules="modules" class="mySwiper">
+      <!-- Компонент SwiperSlide для каждого слайда -->
       <swiper-slide
         v-for="slide in slides"
         :key="slide.id"
         class="bg-black rounded-[35px]"
       >
         <div class="h-[420px]">
+          <!-- Отображение изображения слайда -->
           <img :src="slide.imageUrl" class="h-[420px] w-full" alt="" />
         </div>
       </swiper-slide>
     </swiper>
+    <!-- Компонент GridMenu -->
     <GridMenu />
   </div>
+  <!-- Компонент Best -->
   <Best />
+  <!-- Компонент Comment -->
   <Comment />
+  <!-- Компонент News -->
   <News />
 </template>
-
 <script>
-// Import Swiper Vue.js components
+// Импорт компонентов Swiper Vue.js
 import { Swiper, SwiperSlide } from "swiper/vue";
+// Импорт компонента News
 import News from "./News.vue";
+// Импорт компонента GridMenu
 import GridMenu from "../components/GridMenu.vue";
+// Импорт компонента Comment
 import Comment from "./Comment.vue";
+// Импорт компонента Best
 import Best from "./Best.vue";
-// Import Swiper styles
+// Импорт стилей Swiper
 import "swiper/css";
 import "swiper/css/navigation";
 
-// import required modules
+// Импорт необходимых модулей Swiper
 import { Navigation } from "swiper";
 
 export default {
@@ -43,7 +53,7 @@ export default {
   },
   data() {
     return {
-      modules: [Navigation],
+      modules: [Navigation], // Подключение модулей Swiper
       slides: [
         {
           id: 1,

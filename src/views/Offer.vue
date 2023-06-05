@@ -194,13 +194,15 @@
       >
         <div class="">
           <p class="text-[35px]">Төлем</p>
-          <button
-            @click="addOffer"
-            type="button"
-            class="mt-[20px] h-[50px] w-[200px] text-[20px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-          >
-            Төлеу
-          </button>
+          <router-link to="/Basket">
+            <button
+              @click="addOffer"
+              type="button"
+              class="mt-[20px] h-[50px] w-[200px] text-[20px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+              Төлеу
+            </button>
+          </router-link>
         </div>
       </div>
       {{ currentUser.uid }}

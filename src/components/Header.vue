@@ -194,21 +194,13 @@
                 Шығу
               </button>
             </div>
-            <div v-else>
+            <div v-if="isAuthenticated === false">
               <router-link to="/Login">
                 <button
                   type="button"
                   class="font-bold text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 >
-                  Кіру
-                </button>
-              </router-link>
-              <router-link to="/Reg">
-                <button
-                  type="button"
-                  class="font-bold text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                >
-                  Тіркеу
+                  Кіру/Тіркеу
                 </button>
               </router-link>
             </div>
@@ -236,6 +228,7 @@ export default {
     },
     logout() {
       auth.signOut();
+      this.isAuthenticated = false;
       this.$router.push("/");
     },
   },
@@ -244,30 +237,42 @@ export default {
       if (user) {
         this.isAuthenticated = true;
         const docRef = doc(db, "users", user.uid);
-        onSnapshot(docRef, (docSnap) => {
+        const unsubscribeCart = onSnapshot(docRef, (docSnap) => {
           if (docSnap.exists()) {
             console.log("Document data:", docSnap.data());
             this.itemsLength = docSnap.data().cart.length;
-
             console.log(this.itemsLength);
           } else {
             console.log("No such document!");
           }
         });
+
         const likeRef = doc(db, "userProfile", user.uid);
-        onSnapshot(likeRef, (docSnap) => {
+        const unsubscribeProfile = onSnapshot(likeRef, (docSnap) => {
           if (docSnap.exists()) {
             console.log("Document data:", docSnap.data());
             const userData = docSnap.data();
             console.log(userData);
-
             this.isAdmin = userData.role === "admin";
           } else {
             console.log("No such document!");
           }
         });
+
+        // Save the unsubscribe functions to be used when the component is destroyed
+        this.unsubscribeCart = unsubscribeCart;
+        this.unsubscribeProfile = unsubscribeProfile;
       }
     });
+  },
+  destroyed() {
+    // Unsubscribe from the snapshots to avoid memory leaks
+    if (this.unsubscribeCart) {
+      this.unsubscribeCart();
+    }
+    if (this.unsubscribeProfile) {
+      this.unsubscribeProfile();
+    }
   },
 };
 </script>

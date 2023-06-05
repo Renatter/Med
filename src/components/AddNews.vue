@@ -3,6 +3,7 @@
 
   <div class="center">
     <form @submit.prevent="addProduct">
+      <!-- Поле для ввода названия -->
       <div class="w-[400px]">
         <label for="name">Атауы:</label>
         <input
@@ -14,6 +15,7 @@
         />
       </div>
 
+      <!-- Поле для ввода URL изображения -->
       <div>
         <label for="image">URL суреттер:</label>
         <input
@@ -24,6 +26,8 @@
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
       </div>
+
+      <!-- Поле для выбора даты -->
       <div>
         <label for="validUntil">Күні:</label>
         <input
@@ -35,6 +39,7 @@
         />
       </div>
 
+      <!-- Поле для ввода информации -->
       <div>
         <label for="info">Ақпарат:</label>
         <textarea
@@ -45,6 +50,7 @@
         ></textarea>
       </div>
 
+      <!-- Кнопка для добавления продукта -->
       <button
         type=" button"
         class="mt-[25px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
@@ -71,10 +77,8 @@ export default {
       cat: "Hygiene",
       newProduct: {
         name: "",
-
         image: "",
         validUntil: "",
-
         info: "",
       },
     };
@@ -84,14 +88,18 @@ export default {
       this.cat = item;
     },
     async addProduct() {
+      // Добавление новости в коллекцию "news"
       const docRef = await addDoc(collection(db, "news"), {
         nameNews: this.newProduct.name, // Внимание на исправленную строку
-
         image: this.newProduct.image,
         date: this.newProduct.validUntil,
         text: this.newProduct.info,
       });
-      // Добавление нового товара в массив данных
+      // Очистка полей формы после успешного добавления продукта
+      this.newProduct.name = "";
+      this.newProduct.image = "";
+      this.newProduct.validUntil = "";
+      this.newProduct.info = "";
     },
   },
 };
