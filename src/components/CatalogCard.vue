@@ -1,6 +1,6 @@
 <template>
   <!-- Отображение категории -->
-  {{ cat }}
+
   <div class="flex flex-wrap">
     <!-- Цикл по продуктам -->
     <div v-for="prodcut in prodcuts" class="mt-[45px]">
@@ -29,7 +29,7 @@
             type="button"
             class="text-[20px] mt-[15px] buyButton focus:outline-none text-white bg-[#60A5FA] hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-full"
           >
-            Купить
+            Сатып алу
           </button>
         </router-link>
       </div>

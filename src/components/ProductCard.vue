@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- Отображение элемента -->
-    {{ item }}
+
     <div class="pt-[45px]">
       <h1 class="text-[40px]">
         <!-- Отображение названия, информации и количества -->
