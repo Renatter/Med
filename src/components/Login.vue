@@ -210,7 +210,7 @@ button:hover {
   background: #2e91ff;
   border-radius: 60% / 10%;
   transform: translateY(-180px);
-  transition: 0.8s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 .login label {
   color: white;
