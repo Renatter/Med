@@ -16,7 +16,7 @@
 
           <div class="signup">
             <form @submit.prevent="register">
-              <label for="chk" aria-hidden="true">Тіркеу</label>
+              <label for="chk" aria-hidden="true"> {{ $t("reg.reg") }}</label>
               <input
                 v-model="firstName"
                 type="text"
@@ -39,13 +39,13 @@
                 required=""
               />
 
-              <button>Тіркеу</button>
+              <button>{{ $t("reg.reg") }}</button>
             </form>
           </div>
 
           <div class="login">
             <form @submit.prevent="login">
-              <label for="chk" aria-hidden="true">Кiру</label>
+              <label for="chk" aria-hidden="true">{{ $t("reg.log") }}</label>
               <input
                 v-model="email"
                 type="email"
@@ -60,7 +60,7 @@
                 placeholder="Password"
                 required=""
               />
-              <button class="button1">Кiру</button>
+              <button class="button1">{{ $t("reg.log") }}</button>
             </form>
           </div>
         </div>

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="flex items-center">
         <h1 class="text-[42px] font-bold pb-[35px]">
-          Денсаулық туралы пайдалы
+          {{ $t("newsTitle") }}
         </h1>
       </div>
       <NewsCard :items="news" />

@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <!-- Если нет предложений, выводим "Бос" -->
-    <div v-if="offers < 1" class="text-[150px] text-center">Бос</div>
+    <div v-if="offers < 1" class="text-[150px] text-center">
+      {{ $t("admin.null") }}
+    </div>
     <!-- Выводим предложения -->
     <div v-else class="flex flex-wrap gap-[20px] pt-[25px]">
       <div
@@ -14,19 +16,21 @@
           {{ item.firstName }} {{ item.lastName }} {{ item.number }}
         </p>
         <p>
-          Город: {{ item.city }}, улица: {{ item.ulica }}, дом: {{ item.home }},
-          квартира: {{ item.room }}, почтовый индекс: {{ item.pochtaIndex }}
+          {{ $t("admin.city") }}: {{ item.city }}, {{ $t("admin.koshe") }}:
+          {{ item.ulica }}, {{ $t("admin.home") }}: {{ item.home }},
+          {{ $t("admin.room") }}: {{ item.room }}, почтовый индекс:
+          {{ item.pochtaIndex }}
         </p>
         <div class="flex">
           <!-- Выводим товары в предложении -->
           <div v-for="product in item.cart" class="p-[15px] ml-[20px]">
             <img class="h-[150px]" :src="product.image" alt="" />
             <p>{{ product.name.substring(0, 20) + "..." }}</p>
-            <p>Количество: {{ product.oneItem }}</p>
+            <p>{{ $t("admin.quan") }}: {{ product.oneItem }}</p>
           </div>
         </div>
         <p class="text-[25px] font-bold">
-          Общая сумма:
+          {{ $t("admin.all") }}:
           <span class="text-[#2E91FF]">{{ item.totalSum }} тг</span>
         </p>
         <!-- Кнопка для удаления предложения -->
@@ -35,7 +39,7 @@
           type="button"
           class="mt-[20px] h-[50px] w-[200px] text-[20px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
         >
-          Жіберу
+          {{ $t("admin.spend") }}
         </button>
       </div>
     </div>

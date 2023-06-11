@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <h1 class="font-bold text-[30px]">Пікір қалдыру</h1>
+      <h1 class="font-bold text-[30px]">{{ $t("comment.title") }}</h1>
 
       <div class="rounded-[20px] border-[1px] w-[700px] h-full">
         <!-- Поле для ввода имени пользователя -->
@@ -18,7 +18,7 @@
 
         <!-- Поле для ввода комментария -->
         <div class="p-[25px]">
-          <h1>Сіздің пікіріңіз</h1>
+          <h1>{{ $t("comment.comment") }}</h1>
           <textarea
             v-model="infoText"
             name=""

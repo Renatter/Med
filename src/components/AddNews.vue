@@ -5,7 +5,7 @@
     <form @submit.prevent="addProduct">
       <!-- Поле для ввода названия -->
       <div class="w-[400px]">
-        <label for="name">Атауы:</label>
+        <label for="name"> {{ $t("admin.name") }}:</label>
         <input
           type="text"
           id="name"
@@ -17,7 +17,7 @@
 
       <!-- Поле для ввода URL изображения -->
       <div>
-        <label for="image">URL суреттер:</label>
+        <label for="image"> {{ $t("admin.url") }}:</label>
         <input
           type="text"
           id="image"
@@ -29,7 +29,7 @@
 
       <!-- Поле для выбора даты -->
       <div>
-        <label for="validUntil">Күні:</label>
+        <label for="validUntil"> {{ $t("admin.date") }}</label>
         <input
           type="date"
           id="validUntil"
@@ -41,7 +41,7 @@
 
       <!-- Поле для ввода информации -->
       <div>
-        <label for="info">Ақпарат:</label>
+        <label for="info"> {{ $t("admin.text") }}:</label>
         <textarea
           id="info"
           v-model="newProduct.info"
@@ -55,7 +55,7 @@
         type=" button"
         class="mt-[25px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
       >
-        Қосу
+        {{ $t("admin.add") }}
       </button>
     </form>
   </div>

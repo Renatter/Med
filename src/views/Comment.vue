@@ -2,7 +2,7 @@
   <div class="container h-full pb-[105px]">
     <div class="flex items-center">
       <!-- Комментарий: Заголовок раздела -->
-      <h1 class="text-[42px] font-bold">Клиенттер біз туралы</h1>
+      <h1 class="text-[42px] font-bold">{{ $t("gridMenu.comment") }}</h1>
       <!-- Комментарий: Ссылка на все отзывы -->
     </div>
 

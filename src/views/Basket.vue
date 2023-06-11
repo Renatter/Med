@@ -1,6 +1,6 @@
 <template>
   <div class="h-full bg-white container">
-    <h1 class="text-[50px]">Себет</h1>
+    <h1 class="text-[50px]">{{ $t("basket.title") }}</h1>
 
     <div>
       <div class="relative overflow-x-auto">
@@ -11,10 +11,10 @@
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
           >
             <tr class="text-[15px]">
-              <th scope="col" class="px-6 py-3">Тауар</th>
-              <th scope="col" class="px-6 py-3">Бағасы</th>
-              <th scope="col" class="px-6 py-3">Cаны</th>
-              <th scope="col" class="px-6 py-3">Барлығы</th>
+              <th scope="col" class="px-6 py-3">{{ $t("basket.tauar") }}</th>
+              <th scope="col" class="px-6 py-3">{{ $t("basket.price") }}</th>
+              <th scope="col" class="px-6 py-3">{{ $t("basket.number") }}</th>
+              <th scope="col" class="px-6 py-3">{{ $t("basket.all") }}</th>
             </tr>
           </thead>
           <tbody class="text-[20px]">
@@ -38,12 +38,12 @@
                     }}</span>
                     <div>
                       <span class="font-medium text-[#B6BEC6] dark:text-white">
-                        Қаптамадағы саны:{{ item.quantity }}</span
+                        {{ $t("cardInfo.quanti") }}:{{ item.quantity }}</span
                       >
                     </div>
                     <div>
                       <span class="font-medium text-[#B6BEC6] dark:text-white">
-                        Жарамды:{{ item.validUntil }}</span
+                        {{ $t("cardInfo.date") }}{{ item.validUntil }}</span
                       >
                     </div>
                   </div>
@@ -52,7 +52,7 @@
 
               <td class="px-6 py-4">
                 <div>{{ item.price }} тг</div>
-                <div>Қол жетімді:{{ item.availability }}</div>
+                <div>{{ $t("cardInfo.ablit") }}:{{ item.availability }}</div>
               </td>
               <td class="px-6 py-4">
                 <div
@@ -85,7 +85,7 @@
                   </button>
                 </div>
               </td>
-              <td class="px-6 py-4">${{ item.totalPrice }}</td>
+              <td class="px-6 py-4">{{ item.totalPrice }}тг</td>
               <td class="px-6 py-4">
                 <button @click="deleteItem(item)" class="text-red-500">
                   Delete
@@ -112,14 +112,15 @@
           type="button"
           class="text-[15px] font-bold h-[45px] ml-[15px] border-[1px] text-[#2E91FF] border-[#2E91FF] bg-white hover:bg-[#2E91FF] hover:text-white focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
         >
-          Кодты қолдану
+          {{ $t("basket.code") }}
         </button>
       </div>
       <div v-if="disc" class="text-[#2563EB] font-bold text-[25px]">
         Промокод {{ promoCode }} {{ disc }} %
       </div>
       <div class="mt-4 font-bold text-[20px]">
-        БАРЛЫҒЫ: <span class="text-[#2E91FF]">{{ totalSum }} тг</span>
+        {{ $t("basket.all") }}:
+        <span class="text-[#2E91FF]">{{ totalSum }} тг</span>
       </div>
     </div>
     <router-link to="/Offer">
@@ -128,14 +129,13 @@
         type="button"
         class="mt-[20px] h-[50px] w-[200px] text-[20px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
       >
-        Тапсырыс беру
+        {{ $t("basket.spend") }}
       </button>
     </router-link>
 
     <div class="bg-[#E0EEFF] p-[25px] mt-[20px] rounded-[20px]">
       <p class="text-[20px]">
-        Жеткізу тек 2 500 теңгеден бастап тапсырыспен ғана қолжетімді, бірақ сіз
-        тауарды сатып алып, оны біздің дәріханадан ала аласыз.
+        {{ $t("basket.text") }}
       </p>
     </div>
   </div>

@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="container">
-      <h1 class="text-[55px] font-bold">Біздің байланыстар</h1>
+      <h1 class="text-[55px] font-bold">{{ $t("conect.title") }}</h1>
 
       <div class="flex justify-between">
         <div>
-          <p class="text-[20px] font-bold">Мекен-жайы</p>
+          <p class="text-[20px] font-bold">{{ $t("conect.addres") }}</p>
           <p class="text-[18px]">ул.Айманова 155, ТД «Дархан»</p>
         </div>
         <div>
@@ -13,7 +13,7 @@
           <p class="text-[18px]">+7 771 112 09 57</p>
         </div>
         <div>
-          <p class="text-[20px] font-bold">Қолдау қызметі</p>
+          <p class="text-[20px] font-bold">{{ $t("conect.email") }}</p>
           <p class="text-[18px]">info@apoteka.kz</p>
         </div>
       </div>

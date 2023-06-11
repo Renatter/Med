@@ -8,24 +8,39 @@
               <li
                 class="ml-[20px] bg-[#00CB8E] text-white p-[5px] rounded-[5px] font-bold"
               >
-                Денсаулық туралы пайдалы
+                {{ $t("header.news") }}
               </li>
             </router-link>
             <router-link to="/Delivery">
-              <li class="ml-[20px]">Жеткізу және төлеу</li>
+              <li class="ml-[20px]">{{ $t("header.dev") }}</li>
             </router-link>
 
             <router-link to="/Questions">
-              <li class="ml-[20px]">Жиі сұрақтар</li>
+              <li class="ml-[20px]">{{ $t("header.quest") }}</li>
             </router-link>
             <router-link to="/AddOtzv">
-              <li class="ml-[20px]">Пікір қалдыру</li>
+              <li class="ml-[20px]">{{ $t("header.comment") }}</li>
             </router-link>
             <router-link to="/Contacts">
-              <li class="ml-[20px]">Байланыс</li></router-link
+              <li class="ml-[20px]">{{ $t("header.conect") }}</li></router-link
             >
           </ul>
-          <div>+7 771 112 09 57 телефон және WhatsApp</div>
+          <div class="">
+            <button @click="setLocale('kz')" class="ml-[15px]">
+              <img
+                src="https://avatars.mds.yandex.net/i?id=21595e288846b0b961d3c27bea79fcf3-3871383-images-thumbs&n=13"
+                alt=""
+                class="h-[35px] w-[35px] rounded-[5000px]"
+              />
+            </button>
+            <button @click="setLocale('ru')">
+              <img
+                src="https://cdn1.ozone.ru/s3/multimedia-e/6337266878.jpg"
+                alt=""
+                class="h-[30px] w-[30px] rounded-[5000px] ml-[10px]"
+              />
+            </button>
+          </div>
         </nav>
         <div class="bottom-header pt-[10px]">
           <nav class="flex items-start justify-evenly pt-[15px]">
@@ -72,7 +87,8 @@
                         @click="isDropdownOpen = false"
                         href="#"
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >Гигиена</a
+                      >
+                        {{ $t("header.Hygiene") }}</a
                       >
                     </router-link>
                   </li>
@@ -82,7 +98,8 @@
                         @click="isDropdownOpen = false"
                         href="#"
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >Ана амен бала</a
+                      >
+                        {{ $t("header.Mab") }}</a
                       >
                     </router-link>
                   </li>
@@ -92,7 +109,8 @@
                         @click="isDropdownOpen = false"
                         href="#"
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >Косметика</a
+                      >
+                        {{ $t("header.cosmetic") }}</a
                       ></router-link
                     >
                   </li>
@@ -102,7 +120,8 @@
                         @click="isDropdownOpen = false"
                         href="#"
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >Дәрі-дәрмектер</a
+                      >
+                        {{ $t("header.med") }}</a
                       ></router-link
                     >
                   </li>
@@ -112,7 +131,8 @@
                         @click="isDropdownOpen = false"
                         href="#"
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >Аспаптар мен бұйымдар</a
+                      >
+                        {{ $t("header.Iap") }}</a
                       >
                     </router-link>
                   </li>
@@ -183,7 +203,7 @@
                   type="button"
                   class="font-bold text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 >
-                  Cебет
+                  {{ $t("header.basket") }}
                 </button>
               </router-link>
               <button
@@ -191,7 +211,7 @@
                 @click="logout"
                 class="font-bold text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
               >
-                Шығу
+                {{ $t("header.leave") }}
               </button>
             </div>
             <div v-if="isAuthenticated === false">
@@ -200,7 +220,7 @@
                   type="button"
                   class="font-bold text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 >
-                  Кіру/Тіркеу
+                  {{ $t("header.login") }}
                 </button>
               </router-link>
             </div>
@@ -223,6 +243,9 @@ export default {
     };
   },
   methods: {
+    setLocale(locale) {
+      this.$i18n.locale = locale;
+    },
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen;
     },

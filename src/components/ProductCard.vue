@@ -15,7 +15,7 @@
         />
         <div>
           <div class="price border-[1px] rounded-[15px] w-[700px] p-[25px]">
-            <h1>Бағасы</h1>
+            <h1>{{ $t("cardInfo.price") }}</h1>
             <p class="text-[30px] font-bold text-[#4A94F5]">
               <!-- Отображение цены -->
               {{ item.price }} тг
@@ -29,8 +29,10 @@
                   alt=""
                 />
                 <div class="ml-[15px]">
-                  <p>Қол жетімді: {{ item.availability }} дана.</p>
-                  <p>Бүгін жеткіземіз</p>
+                  <p>
+                    {{ $t("cardInfo.ablit") }}: {{ item.availability }} дана.
+                  </p>
+                  <p>{{ $t("cardInfo.dev") }}</p>
                 </div>
               </div>
               <div
@@ -41,7 +43,7 @@
                   alt=""
                 />
                 <div class="ml-[15px]">
-                  <p>Қоймада: 0 дана.</p>
+                  <p>{{ $t("cardInfo.skald") }}: 0 дана.</p>
                 </div>
               </div>
             </div>
@@ -55,10 +57,18 @@
           </div>
           <div class="flex">
             <div class="text-[#A7B1BB]">
-              <p class="mt-[15px] text-[20px] ml-[5px]">Дейін жарамды:</p>
-              <p class="mt-[15px] text-[20px] ml-[5px]">Шығару формасы:</p>
-              <p class="mt-[15px] text-[20px] ml-[5px]">Қаптамадағы саны:</p>
-              <p class="mt-[15px] text-[20px] ml-[5px]">Өндіруші:</p>
+              <p class="mt-[15px] text-[20px] ml-[5px]">
+                {{ $t("cardInfo.date") }}
+              </p>
+              <p class="mt-[15px] text-[20px] ml-[5px]">
+                {{ $t("cardInfo.forma") }}
+              </p>
+              <p class="mt-[15px] text-[20px] ml-[5px]">
+                {{ $t("cardInfo.quanti") }}:
+              </p>
+              <p class="mt-[15px] text-[20px] ml-[5px]">
+                {{ $t("cardInfo.made") }}
+              </p>
             </div>
             <div>
               <p class="mt-[15px] text-[20px] ml-[10px]">

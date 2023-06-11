@@ -10,7 +10,7 @@
           href="#"
           class="inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
           aria-current="page"
-          >Гигиена</a
+          >{{ $t("admin.Hygiene") }}</a
         >
       </li>
       <li class="mr-2">
@@ -18,7 +18,7 @@
           @click="tab('MaB')"
           href="#"
           class="inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
-          >Ана амен бала</a
+          >{{ $t("admin.Mab") }}</a
         >
       </li>
       <li class="mr-2">
@@ -26,7 +26,7 @@
           @click="tab('Cosmetics')"
           href="#"
           class="inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
-          >Косметика</a
+          >{{ $t("admin.cosmetic") }}</a
         >
       </li>
       <li class="mr-2">
@@ -34,7 +34,7 @@
           @click="tab('Medicines')"
           href="#"
           class="inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
-          >Дәрі-дәрмектер</a
+          >{{ $t("admin.med") }}</a
         >
       </li>
       <li class="mr-2">
@@ -42,7 +42,7 @@
           @click="tab('IaP')"
           href="#"
           class="inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
-          >Аспаптар мен бұйымдар</a
+          >{{ $t("admin.Iap") }}</a
         >
       </li>
     </ul>
@@ -52,7 +52,7 @@
     <form @submit.prevent="addProduct">
       <!-- Поле для ввода названия -->
       <div class="w-[400px]">
-        <label for="name">Атауы:</label>
+        <label for="name">{{ $t("admin.name") }}:</label>
         <input
           type="text"
           id="name"
@@ -64,7 +64,7 @@
 
       <!-- Поле для ввода количества -->
       <div>
-        <label for="quantity">Саны:</label>
+        <label for="quantity">{{ $t("admin.quan") }}:</label>
         <input
           type="number"
           id="quantity"
@@ -76,7 +76,7 @@
 
       <!-- Поле для ввода URL изображения -->
       <div>
-        <label for="image">URL суреттер:</label>
+        <label for="image">{{ $t("admin.url") }}:</label>
         <input
           type="text"
           id="image"
@@ -88,7 +88,7 @@
 
       <!-- Поле для ввода даты окончания -->
       <div>
-        <label for="validUntil">Аяқталу күні:</label>
+        <label for="validUntil">{{ $t("admin.date") }}:</label>
         <input
           type="date"
           id="validUntil"
@@ -100,7 +100,7 @@
 
       <!-- Поле для ввода производителя -->
       <div>
-        <label for="manufacturer">Өндіруші:</label>
+        <label for="manufacturer">{{ $t("admin.made") }}:</label>
         <input
           type="text"
           id="manufacturer"
@@ -112,7 +112,7 @@
 
       <!-- Поле для ввода информации -->
       <div>
-        <label for="info">Ақпарат:</label>
+        <label for="info">{{ $t("admin.text") }}:</label>
         <textarea
           id="info"
           v-model="newProduct.info"
@@ -123,7 +123,7 @@
 
       <!-- Поле для ввода цены -->
       <div>
-        <label for="price">Бағасы:</label>
+        <label for="price">{{ $t("admin.price") }}:</label>
         <input
           type="number"
           id="price"
@@ -135,7 +135,7 @@
 
       <!-- Поле для ввода доступности -->
       <div>
-        <label for="availability">Қол жетімділік:</label>
+        <label for="availability">{{ $t("admin.abil") }}:</label>
         <input
           type="number"
           id="availability"
@@ -146,7 +146,12 @@
       </div>
 
       <!-- Кнопка отправки формы -->
-      <button type="submit">Қосу</button>
+      <button
+        type="submit"
+        class="bg-[#2E91FF] text-white p-[10px] mt-[15px] rounded-[10px] w-[150px]"
+      >
+        {{ $t("admin.add") }}
+      </button>
     </form>
   </div>
 </template>

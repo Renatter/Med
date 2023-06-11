@@ -1,14 +1,14 @@
 <template>
   <div class="flex justify-center items-center">
     <div class="container">
-      <h1 class="text-[30px]">Тапсырысты рәсімдеу</h1>
+      <h1 class="text-[30px]">{{ $t("offer.title") }}</h1>
       <div
         class="border-[2px] w-[700px] text-[20px] p-[25px] rounded-[25px] mt-[25px]"
       >
         <div v-if="userInfo === false">
           <div class="flex">
             <div>
-              <p>Тегі және аты</p>
+              <p>{{ $t("offer.name") }}</p>
               <p>{{ user.lastName }} {{ user.firstName }}</p>
             </div>
           </div>
@@ -28,25 +28,24 @@
             />
           </div>
           <p class="text-[15px] pt-[5px] text-[#9BA3B3]">
-            Телефон нөмірі Тапсырыс күйінің өзгеруі <br />
-            туралы ескертулер үшін қолданылады
+            Т{{ $t("offer.text") }}
           </p>
           <button
             @click="userInfo = true"
             type="button"
             class="ml-[430px] mt-[20px] h-[50px] w-[200px] text-[20px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           >
-            Келесi
+            {{ $t("offer.next") }}
           </button>
         </div>
         <div v-else class="">
           <div class="flex items-end">
             <img
-              src="https://top-fon.com/uploads/posts/2023-01/1674805434_top-fon-com-p-zelenaya-galochka-dlya-prezentatsii-bez-fo-6.png"
+              src="https://cdn-icons-png.flaticon.com/128/4225/4225683.png"
               class="w-[50px]"
             />
             <div class="ml-[15px] text-[#B7BDC7]">
-              <p class="text-black font-bold">Пайдаланушы туралы ақпарат</p>
+              <p class="text-black font-bold">{{ $t("offer.Infouser") }}</p>
               <p>
                 {{ user.firstName }} {{ user.lastName }} {{ number }}
                 {{ user.email }}
@@ -59,10 +58,10 @@
         class="border-[2px] w-[700px] text-[20px] p-[25px] rounded-[25px] mt-[25px]"
       >
         <div v-if="userInfo === true && cityInfo == false">
-          <p class="text-[30px]">Алу әдісі</p>
+          <p class="text-[30px]">{{ $t("offer.take") }}</p>
           <div class="flex">
             <div>
-              <p>Қала</p>
+              <p>{{ $t("offer.city") }}</p>
               <select
                 v-model="city"
                 id="countries"
@@ -90,13 +89,11 @@
             class="border-[1px] rounded-[15px] mt-[20px] border-[#4A94F5] p-[15px]"
           >
             <div class="flex justify-between font-bold">
-              <p>Жеткізу</p>
+              <p>{{ $t("offer.dev") }}</p>
               <p class="text-[#2E91FF] text-[17px]">2500 тг</p>
             </div>
             <p class="text-[18px]">
-              Қазақстан бойынша өңірлік жеткізу, жеткізу құны 2500 теңгеден
-              бастап, жеке есептеледі. Біз сізге қосымша хабарласамыз. Алдын ала
-              тапсырыс сомасы картамен төленуі керек.
+              {{ $t("offer.devtext") }}
             </p>
           </div>
 
@@ -106,19 +103,19 @@
               type="button"
               class="mt-[20px] h-[50px] w-[200px] text-[20px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
-              Келесi
+              {{ $t("offer.next") }}
             </button>
           </div>
         </div>
         <div v-if="cityInfo === true">
           <div class="flex items-end">
             <img
-              src="https://top-fon.com/uploads/posts/2023-01/1674805434_top-fon-com-p-zelenaya-galochka-dlya-prezentatsii-bez-fo-6.png"
+              src="https://cdn-icons-png.flaticon.com/128/4225/4225683.png"
               class="w-[50px]"
             />
             <div class="ml-[15px] text-[#B7BDC7]">
-              <p class="text-black font-bold">Алу әдісі</p>
-              Аймақтық жеткізу
+              <p class="text-black font-bold">{{ $t("offer.take") }}</p>
+              {{ $t("offer.Sposb") }}
             </div>
           </div>
         </div>
@@ -127,10 +124,10 @@
         class="border-[2px] w-[700px] text-[20px] p-[25px] rounded-[25px] mt-[25px]"
       >
         <div v-if="cityInfo === true && adresInfo == false">
-          <p>Алушының мекен-жайы</p>
+          <p>{{ $t("offer.adress") }}</p>
           <div class="flex">
             <div>
-              <p>Көше</p>
+              <p>{{ $t("offer.koshe") }}</p>
               <input
                 v-model="ulica"
                 type="text"
@@ -139,7 +136,7 @@
               />
             </div>
             <div>
-              <p>Үй</p>
+              <p>{{ $t("offer.home") }}</p>
               <input
                 v-model="home"
                 type="text"
@@ -148,7 +145,7 @@
               />
             </div>
             <div>
-              <p>Пәтер</p>
+              <p>{{ $t("offer.room") }}</p>
               <input
                 v-model="room"
                 type="text"
@@ -172,19 +169,21 @@
               type="button"
               class="mt-[20px] h-[50px] w-[200px] text-[20px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
-              Келесi
+              {{ $t("offer.next") }}
             </button>
           </div>
         </div>
         <div v-if="adresInfo === true">
           <div class="flex items-end">
             <img
-              src="https://top-fon.com/uploads/posts/2023-01/1674805434_top-fon-com-p-zelenaya-galochka-dlya-prezentatsii-bez-fo-6.png"
+              src="https://cdn-icons-png.flaticon.com/128/4225/4225683.png"
               class="w-[50px]"
             />
             <div class="ml-[15px] text-[#B7BDC7]">
-              <p class="text-black font-bold">Алушының мекен-жайы</p>
-              Қала {{ city }} ул-{{ ulica }} үй {{ home }} кв {{ room }}
+              <p class="text-black font-bold">{{ $t("offer.adress") }}</p>
+              {{ $t("offer.city") }} {{ city }} ул-{{ ulica }}
+              {{ $t("offer.home") }} {{ home }} {{ $t("offer.room") }}
+              {{ room }}
             </div>
           </div>
         </div>
@@ -193,19 +192,18 @@
         class="border-[2px] w-[350px] text-[20px] p-[25px] rounded-[25px] mt-[25px]"
       >
         <div class="">
-          <p class="text-[35px]">Төлем</p>
+          <p class="text-[35px]">{{ $t("offer.spend") }}</p>
           <router-link to="/Basket">
             <button
               @click="addOffer"
               type="button"
               class="mt-[20px] h-[50px] w-[200px] text-[20px] text-white bg-[#2E91FF] hover:bg-[#2E91FF] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
-              Төлеу
+              {{ $t("offer.enter") }}
             </button>
           </router-link>
         </div>
       </div>
-      {{ currentUser.uid }}
     </div>
   </div>
 </template>

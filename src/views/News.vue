@@ -3,7 +3,7 @@
     <div class="container pb-[40px]">
       <div class="flex items-center">
         <!-- Комментарий: Заголовок раздела -->
-        <h1 class="text-[42px] font-bold">Денсаулық туралы пайдалы</h1>
+        <h1 class="text-[42px] font-bold">{{ $t("gridMenu.news") }}</h1>
         <!-- Комментарий: Ссылка на все новости -->
       </div>
       <!-- Комментарий: Компонент NewsCard для отображения новостей -->
